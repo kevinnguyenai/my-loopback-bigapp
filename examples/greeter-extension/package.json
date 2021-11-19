@@ -1,0 +1,64 @@
+{
+  "name": "@my-loopback-bigapp/example-greeter-extension",
+  "description": "An example showing how to implement the extension point/extension pattern using LoopBack 4",
+  "version": "3.0.1",
+  "keywords": [
+    "loopback",
+    "loopback-extension"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM Corp.",
+  "copyright.owner": "IBM Corp.",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinnguyenai/my-loopback-bigapp.git",
+    "directory": "examples/greeter-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinnguyenai/my-loopback-bigapp/issues"
+  },
+  "engines": {
+    "node": "^10.16 || 12 || 14 || 16"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean *example-greeter-extension-*.tgz dist *.tsbuildinfo package",
+    "lint": "npm run prettier:check && npm run eslint",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "eslint": "lb-eslint --report-unused-disable-directives .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "pretest": "npm run rebuild",
+    "test": "lb-mocha \"dist/__tests__/**/*.js\"",
+    "posttest": "npm run lint",
+    "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
+    "rebuild": "npm run clean && npm run build",
+    "prestart": "npm run rebuild",
+    "start": "node .",
+    "verify": "npm pack && tar xf *example-greeter-extension*.tgz && tree package && npm run clean"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "debug": "^4.3.2",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@loopback/build": "^7.0.2",
+    "@loopback/core": "^3.0.0",
+    "@loopback/eslint-config": "^11.0.2",
+    "@loopback/testlab": "^3.4.4",
+    "@types/debug": "4.1.7",
+    "@types/node": "^10.17.60",
+    "eslint": "^7.32.0",
+    "typescript": "~4.4.4"
+  }
+}

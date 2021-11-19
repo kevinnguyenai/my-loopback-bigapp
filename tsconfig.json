@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@loobpack/build/config/tsconfig.common.json",
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "composite": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "include": ["src"],
+  "references": [
+    {
+      "path": "packages/cli/tsconfig.json"
+    },
+    {
+      "path": "packages/utils/tsconfig.json"
+    },
+    {
+      "path": "examples/greeter-extension/tsconfig.json"
+    },
+    {
+      "path": "examples/greeting-app/tsconfig.json"
+    }
+  ],
+  "files": []
+}
