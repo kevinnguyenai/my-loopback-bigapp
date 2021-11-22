@@ -39,7 +39,7 @@ export class CachingInterceptor implements Provider<Interceptor> {
             }
             const key = httpRequest.path;
             const arrkey  = key.split('/');
-            const result;
+            let result;
             if(arrkey.length===3){
                 const cachingKey = `${arrkey[1]}:${arrkey[2]}`;
                 const cachingResult = await this.cachingService.get(cachingKey);

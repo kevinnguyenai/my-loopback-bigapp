@@ -11,9 +11,12 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
+    "build": "node packages/utils/bin/compile-package -b",
+    "build:lerna": "lerna run build --include-dependencies",
+    "prerelease": "npm run build:full && cross-env CI=1 npm run mocha && npm run lint",
+    "release": "cross-env CI=1 lerna version && lerna publish from-git --yes",
     "clean": "lerna run clean",
-    "clean:full": "npm ci --ignore-scripts && lerna bootstrap --ci && npm run clean",
+    "build:full": "npm ci --ignore-scripts && lerna bootstrap --ci && npm run clean && npm run build",
     "update-all-deps": "npm update && lerna exec -- npm update",
     "start": "lerna run start --stream",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
@@ -25,7 +28,7 @@
     "test": "echo \"Null application \"",
     "test:full": "lb-mocha --allow-console-logs \"dist/__tests__\"",
     "posttest": "yarn run lint",
-    "pretest": "npm run clean && npm run bootstrap",
+    "pretest": "npm run clean && npm run bootstrap && npm run build",
     "prepare": "husky install"
   },
   "devDependencies": {
