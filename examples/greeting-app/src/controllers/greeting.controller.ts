@@ -7,7 +7,7 @@ import {inject} from '@loopback/core';
 import {
   GreetingService,
   GREETING_SERVICE,
-} from '@loopback/example-greeter-extension';
+} from '@my-loopback-bigapp/example-greeter-extension';
 import {get, param, Request, RestBindings} from '@loopback/rest';
 import {Message} from '../types';
 

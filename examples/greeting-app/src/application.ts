@@ -5,8 +5,8 @@
 
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig, createBindingFromClass} from '@loopback/core';
-import {GreetingComponent} from '@loopback/example-greeter-extension';
-import {AnimalComponent} from '@loopback/example-greeter-extension';
+import {GreetingComponent} from '@my-loopback-bigapp/example-greeter-extension';
+import {AnimalComponent} from '@my-loopback-bigapp/example-greeter-extension';
 import {RestApplication} from '@loopback/rest';
 import {CachingService} from './caching-service';
 import {CachingInterceptor} from './interceptors';

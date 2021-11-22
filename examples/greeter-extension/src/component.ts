@@ -3,7 +3,12 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-import {Binding, createBindingFromClass, Component} from '@loopback/core';
+import {
+  Binding,
+  createBindingFromClass,
+  Component,
+  LifeCycleObserver,
+} from '@loopback/core';
 import {ChineseGreeter} from './greeters/greeter-cn';
 import {EnglishGreeter} from './greeters/greeter-en';
 import {GreetingService} from './greeting-service';
@@ -17,7 +22,8 @@ import {ANIMAL_SERVICE} from './keys';
  * Define a component to register the greeter extension point and built-in
  * extensions
  */
-export class GreetingComponent implements Component {
+export class GreetingComponent implements Component, LifeCycleObserver {
+  async init() {}
   bindings: Binding[] = [
     createBindingFromClass(GreetingService, {
       key: GREETING_SERVICE,
@@ -30,7 +36,8 @@ export class GreetingComponent implements Component {
 /**
  * Define a component to register the animal extension point and built-in extensions
  */
-export class AnimalComponent implements Component {
+export class AnimalComponent implements Component, LifeCycleObserver {
+  async init() {}
   bindings: Binding[] = [
     createBindingFromClass(AnimalService, {
       key: ANIMAL_SERVICE,

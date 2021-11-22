@@ -2,7 +2,7 @@ import {inject} from '@loopback/core';
 import {
   AnimalService,
   ANIMAL_SERVICE,
-} from '@loopback/example-greeter-extension';
+} from '@my-loopback-bigapp/example-greeter-extension';
 import {get, param, Request, RestBindings} from '@loopback/rest';
 import {Speaking} from '../types';
 
